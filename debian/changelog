@@ -1,4 +1,4 @@
-backport-iwlwifi (74.60~dev1.1) jammy; urgency=medium
+backport-iwlwifi (74.60~dev1.1) focal; urgency=medium
 
   * develop版のリリース準備。
 
