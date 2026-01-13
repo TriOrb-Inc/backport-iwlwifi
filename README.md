@@ -8,22 +8,23 @@ intel WiFi,Bluetooth firmware binaries
    sudo apt-get update
    sudo apt-get install -y devscripts debhelper lintian build-essential
    ```
-2. ソースパッケージのメタデータを確認します（`debian/changelog` の対象ディストリ名など）。
-3. ソースをビルドして `.changes` と `.dsc` を生成します。
+2. `debian/rules` が存在するパッケージング用ディレクトリで作業します（`debuild` は `debian/rules` が必須です）。
+3. ソースパッケージのメタデータを確認します（`debian/changelog` の対象ディストリ名など）。
+4. ソースをビルドして `.changes` と `.dsc` を生成します。
    ```sh
    debuild -S -sa
    ```
-4. 生成物が正しいか確認します。
+5. 生成物が正しいか確認します。
    ```sh
    lintian ../*.changes
    ```
-5. Launchpad の PPA にアップロードします。
+6. Launchpad の PPA にアップロードします。
    ```sh
    dput ppa:triorb/ppa <your-package>.changes
    ```
-6. Launchpad のビルド完了後、以下の PPA ページで公開状態を確認します。
+7. Launchpad のビルド完了後、以下の PPA ページで公開状態を確認します。
    https://launchpad.net/~triorb/+archive/ubuntu/ppa
-7. 配布先で PPA を追加してインストールします。
+8. 配布先で PPA を追加してインストールします。
    ```sh
    sudo add-apt-repository ppa:triorb/ppa
    sudo apt-get update
