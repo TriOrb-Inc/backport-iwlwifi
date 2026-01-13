@@ -29,3 +29,14 @@ intel WiFi,Bluetooth firmware binaries
    sudo apt-get update
    sudo apt-get install -y <package-name>
    ```
+
+## develop版をPPAにアップロードする推奨手順
+1. develop 向けのバージョンを `debian/changelog` に追記します（例: `1.2.3~dev1`）。
+2. ソースをビルドして `.changes` と `.dsc` を生成します。
+   ```sh
+   debuild -S -sa
+   ```
+3. Launchpad の PPA にアップロードします。
+   ```sh
+   dput ppa:triorb/ppa <your-package>.changes
+   ```
