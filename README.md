@@ -23,3 +23,9 @@ intel WiFi,Bluetooth firmware binaries
    ```
 6. Launchpad のビルド完了後、以下の PPA ページで公開状態を確認します。
    https://launchpad.net/~triorb/+archive/ubuntu/ppa
+7. 配布先で PPA を追加してインストールします。
+   ```sh
+   sudo add-apt-repository ppa:triorb/ppa
+   sudo apt-get update
+   sudo apt-get install -y <package-name>
+   ```
