@@ -2,7 +2,7 @@ Source: backport-iwlwifi
 Section: kernel
 Priority: optional
 Maintainer: Unknown Maintainer <maintainer@example.com>
-Build-Depends: debhelper-compat (= 13)
+Build-Depends: debhelper-compat (>= 13)
 Standards-Version: 4.6.2
 Rules-Requires-Root: no
 Homepage: https://launchpad.net/~triorb/+archive/ubuntu/ppa
