@@ -29,6 +29,7 @@ intel WiFi,Bluetooth firmware binaries
    ```sh
    dput ppa:triorb/ppa <your-package>.changes
    ```
+   - `dput` が署名検証で失敗する場合は、生成した `.changes` が正しく署名されているかを確認してください。
 7. Launchpad のビルド完了後、以下の PPA ページで公開状態を確認します。
    https://launchpad.net/~triorb/+archive/ubuntu/ppa
 8. 配布先で PPA を追加してインストールします。
@@ -74,6 +75,21 @@ intel WiFi,Bluetooth firmware binaries
 3. 既存パッケージを参考にする方法（代替）。
    - 既存のカーネルモジュール系パッケージの `debian/` をコピーして必要箇所を置き換えると、手早く整備できます。
 
+## GPG 秘密鍵の作成と KEY_ID の指定方法
+1. 秘密鍵を作成します。
+   ```sh
+   gpg --full-generate-key
+   ```
+2. 署名に使う秘密鍵の `KEY_ID` を確認します。
+   ```sh
+   gpg --list-secret-keys --keyid-format=long
+   ```
+   - `sec   rsa4096/XXXXXXXXXXXXXXXX` の **`/` の右側**（16 文字の ID）が `KEY_ID` です。
+3. Launchpad 登録用に公開鍵をエクスポートします。
+   ```sh
+   gpg --armor --export <KEY_ID>
+   ```
+
 ## ソースコードからビルドしてインストールする手順
 1. ソースツリーでビルドします。
 2. カーネルモジュールをインストールし、依存関係を更新します。
@@ -86,3 +102,5 @@ intel WiFi,Bluetooth firmware binaries
    cd ../fw-binaries
    sudo cp -rf ./* /usr/lib/firmware/
    ```
+   - apt でインストールする場合は `debian/rules` の `override_dh_auto_install` で
+     `fw-binaries/*` をパッケージに取り込み、`/lib/firmware` に展開されます。
