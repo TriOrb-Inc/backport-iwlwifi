@@ -49,6 +49,31 @@ intel WiFi,Bluetooth firmware binaries
    dput ppa:triorb/ppa <your-package>.changes
    ```
 
+## debian/配下のファイルの用意方法
+`debuild` でソースパッケージを作るには、最低限の `debian/` ファイルを自分で用意する必要があります。ここでは**最小構成の作り方**を例示します。
+
+1. ひな型を生成します（推奨）。
+   ```sh
+   sudo apt-get install -y dh-make
+   dh_make --createorig -s -p <package-name>_<version>
+   ```
+   - 実行すると `debian/` が生成されるので、不要なサンプルファイルを削除します。
+
+2. 主要ファイルを編集します。
+   - `debian/control`: パッケージ名、依存、説明を記載します。
+   - `debian/changelog`: バージョンと配布先ディストリ、変更点を記載します。
+   - `debian/rules`: `dh` を使う場合の最小例は以下です。
+     ```makefile
+     #!/usr/bin/make -f
+     %:
+     \tdh $@
+     ```
+     その後 `chmod +x debian/rules` を実行します。
+   - `debian/source/format`: ソース形式を指定します（例: `3.0 (quilt)`）。
+
+3. 既存パッケージを参考にする方法（代替）。
+   - 既存のカーネルモジュール系パッケージの `debian/` をコピーして必要箇所を置き換えると、手早く整備できます。
+
 ## ソースコードからビルドしてインストールする手順
 1. ソースツリーでビルドします。
 2. カーネルモジュールをインストールし、依存関係を更新します。
