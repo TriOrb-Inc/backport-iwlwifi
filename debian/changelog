@@ -1,5 +1,5 @@
-backport-iwlwifi (74-60~dev1.1) unstable; urgency=medium
+backport-iwlwifi (74.60~dev1.1) jammy; urgency=medium
 
   * develop版のリリース準備。
 
- -- Codex <codex@openai.com>  Tue, 13 Jan 2026 03:10:00 +0000
+ -- Codex <codex@openai.com>  Tue, 13 Jan 2026 03:30:00 +0000
