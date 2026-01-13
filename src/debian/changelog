@@ -1,0 +1,6 @@
+backport-iwlwifi (74.60~dev1.2) focal; urgency=medium
+
+  * develop版のリリース準備。
+  * lintian 指摘対応（changelog/README.source/Standards-Version）。
+
+ -- Tobeta Masakazu <tobeta.masakazu@triorb.co.jp>  Tue, 13 Jan 2026 04:00:00 +0000

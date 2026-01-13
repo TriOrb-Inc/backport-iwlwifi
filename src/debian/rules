@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+export KLIB_BUILD ?= /lib/modules/$(shell uname -r)/build
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	$(MAKE) -C iwlwifi-stack-dev defconfig-iwlwifi
+
+override_dh_auto_build:
+	$(MAKE) -C iwlwifi-stack-dev modules
+
+override_dh_auto_install:
+	$(MAKE) -C $(KLIB_BUILD) M=$(CURDIR)/iwlwifi-stack-dev \
+		INSTALL_MOD_PATH=$(CURDIR)/debian/backport-iwlwifi \
+		INSTALL_MOD_DIR=updates modules_install
+	install -d $(CURDIR)/debian/backport-iwlwifi/lib/firmware
+	cp -a fw-binaries/* $(CURDIR)/debian/backport-iwlwifi/lib/firmware/

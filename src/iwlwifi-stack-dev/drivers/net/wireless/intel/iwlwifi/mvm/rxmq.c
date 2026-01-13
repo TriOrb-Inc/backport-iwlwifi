@@ -402,9 +402,14 @@ static int iwl_mvm_rx_crypto(struct iwl_mvm *mvm, struct ieee80211_sta *sta,
 
 	if ((status & IWL_RX_MPDU_STATUS_SEC_MASK) ==
 	    IWL_RX_MPDU_STATUS_SEC_UNKNOWN) {
+		if (!mvm->monitor_on &&
+		    !fw_has_api(&mvm->fw->ucode_capa,
+				IWL_UCODE_TLV_API_DEPRECATE_TTAK) &&
+		    !(status & IWL_RX_MPDU_RES_STATUS_TTAK_OK))
+			return 0;
 		if (!mvm->monitor_on && net_ratelimit())
 			IWL_WARN(mvm, "Unhandled alg: 0x%x\n", status);
-		return -1;
+		return mvm->monitor_on ? 0 : -1;
 	}
 
 	switch (status & IWL_RX_MPDU_STATUS_SEC_MASK) {

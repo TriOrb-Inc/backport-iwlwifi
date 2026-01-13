@@ -1,0 +1,32 @@
+# ビルド生成物
+*.o
+*.ko
+*.mod
+*.mod.c
+*.mod.o
+*.cmd
+*.symvers
+*.order
+*.tmp
+*.a
+*.so
+*.d
+*.elf
+
+# カーネル/バックポートのビルドディレクトリ
+/build/
+/iwlwifi-stack-dev/compat/
+
+# パッケージング生成物
+*.deb
+*.ddeb
+*.udeb
+*.dsc
+*.changes
+*.buildinfo
+*.tar.*
+
+# エディタ/OS
+*.swp
+*~
+.DS_Store

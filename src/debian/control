@@ -1,0 +1,14 @@
+Source: backport-iwlwifi
+Section: kernel
+Priority: optional
+Maintainer: Unknown Maintainer <maintainer@example.com>
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
+Homepage: https://launchpad.net/~triorb/+archive/ubuntu/ppa
+
+Package: backport-iwlwifi
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Intel WiFi driver backport
+ Intel WiFi driver backport and firmware binaries.

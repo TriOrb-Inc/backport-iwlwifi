@@ -1,0 +1,13 @@
+backport-iwlwifi のソースパッケージは upstream のバックポートツリーと
+Intel の firmware バイナリを同梱する構成です。
+
+主なビルド・インストール手順は以下の通りです。
+1. debian/rules に従い defconfig-iwlwifi で設定を生成します。
+2. iwlwifi-stack-dev の modules ターゲットでモジュールをビルドします。
+3. modules_install でモジュールを配置し、fw-binaries を /lib/firmware に配置します。
+
+ローカルでのソースパッケージ作成は以下を参考にしてください。
+  debuild -S -sa
+
+この README.source は本パッケージの構成と手順を説明するものであり、
+テンプレートのまま残されているものではありません。
