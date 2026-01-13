@@ -1,0 +1,24 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: backport-iwlwifi
+Source: https://launchpad.net/~triorb/+archive/ubuntu/ppa
+
+Files: *
+Copyright: 2009-2024 Intel Corporation
+License: GPL-2.0-only
+
+Files: fw-binaries/*
+Copyright: Intel Corporation
+License: Redistributable
+
+License: GPL-2.0-only
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License version 2 only,
+ as published by the Free Software Foundation.
+ .
+ On Debian systems, the complete text of the GNU General Public License
+ version 2 can be found in "/usr/share/common-licenses/GPL-2".
+
+License: Redistributable
+ This package includes firmware binaries that are redistributable under
+ their respective license terms. See the upstream firmware license files
+ for details.
