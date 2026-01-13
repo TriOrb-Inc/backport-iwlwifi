@@ -6,6 +6,8 @@ Intel の firmware バイナリを同梱する構成です。
 2. iwlwifi-stack-dev の modules ターゲットでモジュールをビルドします。
 3. modules_install でモジュールを配置し、fw-binaries を /lib/firmware に配置します。
 
-ローカルでのビルドは以下を参考にしてください。
+ローカルでのソースパッケージ作成は以下を参考にしてください。
   debuild -S -sa
 
+この README.source は本パッケージの構成と手順を説明するものであり、
+テンプレートのまま残されているものではありません。

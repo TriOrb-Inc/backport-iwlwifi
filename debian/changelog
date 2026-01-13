@@ -1,5 +1,6 @@
-backport-iwlwifi (74.60~dev1.1) focal; urgency=medium
+backport-iwlwifi (74.60~dev1.2) focal; urgency=medium
 
   * develop版のリリース準備。
+  * lintian 指摘対応（changelog/README.source/Standards-Version）。
 
- -- Codex <codex@openai.com>  Tue, 13 Jan 2026 03:30:00 +0000
+ -- Codex <codex@openai.com>  Tue, 13 Jan 2026 04:00:00 +0000
