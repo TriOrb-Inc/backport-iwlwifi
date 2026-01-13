@@ -404,8 +404,7 @@ static int iwl_mvm_rx_crypto(struct iwl_mvm *mvm, struct ieee80211_sta *sta,
 	    IWL_RX_MPDU_STATUS_SEC_UNKNOWN) {
 		if (!mvm->monitor_on && net_ratelimit())
 			IWL_WARN(mvm, "Unhandled alg: 0x%x\n", status);
-		if (!mvm->monitor_on)
-			return -1;
+		return 0;
 	}
 
 	switch (status & IWL_RX_MPDU_STATUS_SEC_MASK) {
