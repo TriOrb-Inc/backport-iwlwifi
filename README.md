@@ -9,6 +9,13 @@ intel WiFi,Bluetooth firmware binaries
    sudo apt-get install -y devscripts debhelper lintian build-essential
    ```
 2. `debian/rules` が存在するパッケージング用ディレクトリで作業します（`debuild` は `debian/rules` が必須です）。
+   - `debian/rules` はディレクトリではなく **実行可能なファイル** です。
+   - 最低限、以下のファイルが揃っている必要があります。
+     - `debian/rules`
+     - `debian/control`
+     - `debian/changelog`
+     - `debian/source/format`（または `debian/compat` などビルドシステムに必要なファイル）
+   - このリポジトリには現状 `debian/changelog` しかないため、PPA 用には `debian/rules`/`debian/control` などを追加で用意してください。
 3. ソースパッケージのメタデータを確認します（`debian/changelog` の対象ディストリ名など）。
 4. ソースをビルドして `.changes` と `.dsc` を生成します。
    ```sh
