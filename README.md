@@ -40,3 +40,16 @@ intel WiFi,Bluetooth firmware binaries
    ```sh
    dput ppa:triorb/ppa <your-package>.changes
    ```
+
+## ソースコードからビルドしてインストールする手順
+1. ソースツリーでビルドします。
+2. カーネルモジュールをインストールし、依存関係を更新します。
+   ```sh
+   sudo make install
+   sudo depmod --all
+   ```
+3. ファームウェアを配置します。
+   ```sh
+   cd ../fw-binaries
+   sudo cp -rf ./* /usr/lib/firmware/
+   ```
