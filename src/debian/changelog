@@ -1,0 +1,5 @@
+backport-iwlwifi-dkms (74.60.1.triorb~dev0.2) focal; urgency=medium
+
+  * develop版のリリース準備
+
+ -- Tobeta Masakazu <tobeta.masakazu@triorb.co.jp>  Tue, 13 Jan 2026 04:00:00 +0000

@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+# DKMSパッケージ化のため、ビルド・インストール工程は空
+override_dh_auto_configure:
+
+override_dh_auto_build:
+
+override_dh_auto_install:

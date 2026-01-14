@@ -1,0 +1,16 @@
+Source: backport-iwlwifi-dkms
+Section: kernel
+Priority: optional
+Maintainer: Unknown Maintainer <maintainer@example.com>
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
+Homepage: https://launchpad.net/~triorb/+archive/ubuntu/ppa
+
+Package: backport-iwlwifi-dkms
+Architecture: all
+Depends: dkms, linux-headers-generic | linux-headers, ${misc:Depends}
+Description: Intel WiFi driver backport (DKMS)
+ This package provides the Intel WiFi driver backport as a DKMS module.
+ The source and dkms.conf are installed to /usr/src/backport-iwlwifi-<version>/.
+ The actual kernel module is built locally on install by DKMS for the running kernel.
