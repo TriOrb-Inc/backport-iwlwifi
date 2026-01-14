@@ -1,4 +1,4 @@
-backport-iwlwifi-dkms (74.60.1-triorb~dev0.2) focal; urgency=medium
+backport-iwlwifi-dkms (74.60.1.triorb~dev0.2) focal; urgency=medium
 
   * develop版のリリース準備
 
