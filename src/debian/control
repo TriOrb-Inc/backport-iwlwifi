@@ -8,7 +8,7 @@ Rules-Requires-Root: no
 Homepage: https://launchpad.net/~triorb/+archive/ubuntu/ppa
 
 Package: backport-iwlwifi
-Architecture: any
+Architecture: arm64
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Intel WiFi driver backport
  Intel WiFi driver backport and firmware binaries.

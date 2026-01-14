@@ -25,6 +25,8 @@
 *.changes
 *.buildinfo
 *.tar.*
+*.build
+*.ppa.upload
 
 # エディタ/OS
 *.swp
