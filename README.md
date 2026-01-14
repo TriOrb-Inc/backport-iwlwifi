@@ -62,7 +62,8 @@ intel WiFi,Bluetooth firmware binaries
    sudo chmod 644 /etc/apt/trusted.gpg.d/triorb-ppa.gpg
    sudo apt update
    sudo apt list backport-iwlwifi-dkms -a
-   sudo apt-get install -y <package-name>
+   # 'backport-iwlwifi-dkms/focal 74.60.1-triorb~dev0.2 all' みたいな行が表示されればOK
+   sudo apt-get install -y backport-iwlwifi-dkms=<VERSION> # sudo apt-get install -y backport-iwlwifi-dkms=74.60.1-triorb~dev0.2
    ```
 
 ## develop版をPPAにアップロードする推奨手順
