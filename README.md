@@ -18,6 +18,9 @@ intel WiFi,Bluetooth firmware binaries
    # 作成したGPGキーのフィンガープリントを表示します
    gpg --fingerprint 
    # Launchpadの「OpenPGP keys」からフィンガープリントを登録します
+   # メールで暗号文が送られてくるので~/lp.txtなどに保存し、以下で複合します
+   gpg --decrypt ~/lp.txt
+   # Verify用のURLが記載されているのでブラウザでアクセスして登録を完了します
    ```
 3. パッケージソースディレクトリに移動します。
    ```sh
@@ -43,17 +46,22 @@ intel WiFi,Bluetooth firmware binaries
    ```
 8. Launchpad の PPA にアップロードします。
    ```sh
-   dput ppa:triorb/ppa <your-package>.changes #(ex. dput ppa:triorb/ppa ../backport-iwlwifi_74.60~dev1.3_source.changes)
+   dput ppa:triorb/ppa <your-package>.changes #(ex. dput ppa:triorb/ppa ../backport-iwlwifi-dkms_*_source.changes)
    ```
    - `dput` が署名検証で失敗する場合は、生成した `.changes` が正しく署名されているかを確認してください。
    - PPAページに反映されるまで数分から数十分かかる場合があります。
 9. Launchpad のビルド完了後、以下の PPA ページで公開状態を確認します。
-   https://launchpad.net/~triorb/+archive/ubuntu/ppa
-   - 次のコマンドでも確認できます```wget -qO- http://ppa.launchpad.net/triorb/ppa/ubuntu/dists/$(lsb_release -sc)/main/binary-amd64/Packages | grep 'Package: '```
+   - https://launchpad.net/~triorb/+archive/ubuntu/ppa
+   - ビルドが成功した後も公開まで30分程度かかることもある※1回目の公開では16分かかった
 10. 配布先で PPA を追加してインストールします。
    ```sh
-   sudo add-apt-repository ppa:triorb/ppa
-   sudo apt-get update
+   sudo add-apt-repository -y ppa:triorb/ppa
+   sudo mkdir -p /root/.gnupg
+   sudo chmod 700 /root/.gnupg
+   sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/triorb-ppa.gpg --keyserver keyserver.ubuntu.com --recv-keys 87560D6257B80A1F
+   sudo chmod 644 /etc/apt/trusted.gpg.d/triorb-ppa.gpg
+   sudo apt update
+   sudo apt list backport-iwlwifi-dkms -a
    sudo apt-get install -y <package-name>
    ```
 

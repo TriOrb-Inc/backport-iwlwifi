@@ -1,0 +1,4 @@
+# backport-iwlwifi-dkms DKMS source install
+iwlwifi-stack-dev/*  /usr/src/backport-iwlwifi-$(VERSION)/
+fw-binaries/*        /usr/src/backport-iwlwifi-$(VERSION)/
+dkms.conf            /usr/src/backport-iwlwifi-$(VERSION)/
